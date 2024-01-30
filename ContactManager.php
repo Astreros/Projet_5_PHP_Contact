@@ -30,6 +30,7 @@ class ContactManager
         $query->execute(['id' => $id]);
         $data = $query->fetch();
 
+//      Je vérifie que la base de données renvoie bien quelque chose
         if (!$data) {
             return false;
         }
@@ -65,7 +66,6 @@ class ContactManager
 
         $query = $pdo->prepare("DELETE FROM contact where id = :id");
         $query->execute(['id' => $id]);
-//        $query->fetch();
 
         return "Le contact {$id} à bien été supprimé\n";
     }
